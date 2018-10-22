@@ -32,4 +32,6 @@ docker-build:
   before_script:
     - docker info
   script:
-    - docker build -t simonkrenger/echoenv:$CI_COMMIT_REF_NAME .
+    - docker build -t simonkrenger/echoenv:$CI_COMMIT_REF_NAME -t simonkrenger/echoenv:latest .
+    - docker push simonkrenger/echoenv:$CI_COMMIT_REF_NAME
+    - docker push simonkrenger/echoenv:latest
