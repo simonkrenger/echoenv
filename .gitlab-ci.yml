@@ -11,6 +11,7 @@ go-lint-test:
   image: golang:1.11
   before_script:
    - go get -u golang.org/x/lint/golint
+   - go get -u github.com/gin-gonic/gin
   script:
     - golint -set_exit_status $(go list .)
     - go test .
