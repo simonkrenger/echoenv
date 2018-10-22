@@ -33,5 +33,6 @@ docker-build:
     - docker info
   script:
     - docker build -t simonkrenger/echoenv:$CI_COMMIT_REF_NAME -t simonkrenger/echoenv:latest .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker push simonkrenger/echoenv:$CI_COMMIT_REF_NAME
     - docker push simonkrenger/echoenv:latest
