@@ -13,7 +13,7 @@ go-lint-test:
    - go get -u golang.org/x/lint/golint
    - go get -u github.com/gin-gonic/gin
   script:
-    - golint -set_exit_status $(go list .)
+    - golint -set_exit_status echoenv.go
     - go test .
 
 go-build:
@@ -27,7 +27,9 @@ go-build:
 docker-build:
   stage: dockerize
   image: docker:stable
+  services:
+    - docker:dind
   before_script:
     - docker info
   script:
-    - docker build -t simonkrenger/echoenv:latest .
+    - docker build -t simonkrenger/echoenv:$CI_COMMIT_REF_NAME .
