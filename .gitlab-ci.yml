@@ -1,0 +1,29 @@
+---
+# -*- coding: utf-8 -*-
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y golang docker
+  - go version
+  - go get -u golang.org/x/lint/golint
+  - go get -u github.com/gin-gonic/gin
+
+stages:
+  - lint
+  - build
+  - dockerize
+
+go-lint:
+  stage: lint
+  script:
+    - golint -set_exit_status $(go list .)
+
+go-build:
+  stage: build
+  script:
+    - go build -v .
+
+docker-build:
+  stage: dockerize
+  script:
+    - docker build -t simonkrenger/echoenv:latest .
