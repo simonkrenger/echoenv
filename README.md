@@ -4,14 +4,17 @@ A small container that returns the environment variables plus some basic informa
 
 Example:
 ```
+$ podman run -d -p 8080:8080 simonkrenger/echoenv
 $ curl localhost:8080/abc | jq
 {
   "env": [
     "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-    "HOSTNAME=759411f28383",
+    "TERM=xterm",
+    "HOSTNAME=95b22f86671a",
+    "container=podman",
     "HOME=/root"
   ],
-  "hostname": "759411f28383",
+  "hostname": "95b22f86671a",
   "process": {
     "gid": 0,
     "pid": 1,
@@ -23,7 +26,7 @@ $ curl localhost:8080/abc | jq
         "*/*"
       ],
       "User-Agent": [
-        "curl/7.54.0"
+        "curl/7.66.0"
       ]
     },
     "host": "localhost:8080",
