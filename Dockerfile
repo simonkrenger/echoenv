@@ -1,4 +1,7 @@
-FROM golang:1.13
+FROM golang:1.14
+LABEL maintainer="Simon Krenger <simon@krenger.ch>"
+LABEL description="A small container that returns the environment variables plus some basic information on port 8080"
+
 WORKDIR /go/src/gitlab.com/simonkrenger/echoenv
 RUN go get github.com/gin-gonic/gin
 COPY echoenv.go .
