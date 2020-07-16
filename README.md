@@ -47,3 +47,20 @@ $ curl localhost:8080/abc | jq
   }
 }
 ```
+
+Or as a `Pod`:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: echoenv-pod
+  labels:
+    app: echoenv
+spec:
+  containers:
+  - name: echoenv
+    image: simonkrenger/echoenv:latest
+    ports:
+    - containerPort: 8080
+```
