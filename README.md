@@ -1,10 +1,11 @@
 # echoenv
 
-A small container that returns the environment variables plus some basic information on port 8080.
+A small container that returns the environment variables plus some basic request information on port 8080.
 
 Example:
+
 ```
-$ podman run -d -p 8080:8080 simonkrenger/echoenv
+$ podman run -d -p 8080:8080 quay.io/simonkrenger/echoenv
 $ curl localhost:8080/abc | jq
 {
   "env": [
@@ -60,7 +61,7 @@ metadata:
 spec:
   containers:
   - name: echoenv
-    image: simonkrenger/echoenv:latest
+    image: quay.io/simonkrenger/echoenv:latest
     ports:
     - containerPort: 8080
 ```
