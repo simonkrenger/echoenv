@@ -15,6 +15,7 @@ WORKDIR /
 COPY --from=0 /go/src/github.com/simonkrenger/echoenv/echoenv .
 
 ENV GIN_MODE release
-EXPOSE 8080
+ENV PORT 8080
+EXPOSE $PORT
 USER 1001
 CMD ["./echoenv"]
