@@ -51,5 +51,6 @@ func getEnvironment(c *gin.Context) gin.H {
 			"host":       c.Request.Host,
 			"url":        c.Request.URL,
 		},
+    "clientIP": c.ClientIP(),
 	}
 }
