@@ -8,12 +8,14 @@ Example:
 $ podman run -d -p 8080:8080 quay.io/simonkrenger/echoenv
 $ curl localhost:8080/abc | jq
 {
+  "clientIP": "172.20.0.1",
   "env": [
     "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-    "TERM=xterm",
     "HOSTNAME=95b22f86671a",
+    "GIN_MODE=release",
     "container=podman",
-    "HOME=/root"
+    "PORT=8080",
+    "HOME=/"
   ],
   "hostname": "95b22f86671a",
   "process": {

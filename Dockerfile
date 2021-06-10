@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-minimal:33 as build
+FROM registry.fedoraproject.org/fedora-minimal:34 as build
 LABEL maintainer="Simon Krenger <simon@krenger.ch>"
 LABEL description="A small container that returns the environment variables plus some basic information on port 8080"
 
